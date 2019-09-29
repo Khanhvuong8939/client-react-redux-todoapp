@@ -47,6 +47,9 @@ class AddProject extends Component {
 
   render() {
     const { errors } = this.state;
+    let validInput = "form-control form-control-lg";
+    let invalidInput = "form-control form-control-lg is-invalid";
+    let errorText = e => <div className="invalid-feedback">{e}</div>;
     return (
       <div className="register">
         <div className="container">
@@ -60,56 +63,59 @@ class AddProject extends Component {
                 <div className="form-group">
                   <input
                     type="text"
-                    className="form-control form-control-lg "
+                    className={errors.projectName ? invalidInput : validInput}
+                    // className="form-control form-control-lg "
                     placeholder="Project Name"
                     name="projectName"
                     value={this.state.projectName}
                     onChange={this.onChange}
                   />
-                  <p>{errors.projectName}</p>
+                  {errors.projectName ? errorText(errors.projectName) : null}
                 </div>
                 <div className="form-group">
                   <input
                     type="text"
-                    className="form-control form-control-lg"
+                    className={errors.projectName ? invalidInput : validInput}
                     placeholder="Unique Project ID"
                     name="projectIdentifier"
                     value={this.state.projectIdentifier}
                     onChange={this.onChange}
                   />
-                  <p>{errors.projectIdentifier}</p>
+                  {errors.projectName
+                    ? errorText(errors.projectIdentifier)
+                    : null}
                 </div>
                 <div className="form-group">
                   <textarea
-                    className="form-control form-control-lg"
+                    className={errors.projectName ? invalidInput : validInput}
                     placeholder="Project Description"
                     name="description"
                     value={this.state.description}
                     onChange={this.onChange}
                   ></textarea>
-                  <p>{errors.description}</p>
+                  {errors.projectName ? errorText(errors.description) : null}
                 </div>
                 <h6>Start Date</h6>
                 <div className="form-group">
                   <input
                     type="date"
-                    className="form-control form-control-lg"
+                    className={errors.projectName ? invalidInput : validInput}
                     name="startDate"
                     value={this.state.startDate}
                     onChange={this.onChange}
                   />
-                  <p>{errors.startDate}</p>
+                  {errors.projectName ? errorText(errors.startDate) : null}
                 </div>
                 <h6>Estimated End Date</h6>
                 <div className="form-group">
                   <input
                     type="date"
-                    className="form-control form-control-lg"
+                    className={errors.projectName ? invalidInput : validInput}
                     name="endDate"
                     value={this.state.endDate}
                     onChange={this.onChange}
                   />
-                  <p>{errors.endDate}</p>
+                  {errors.projectName ? errorText(errors.endDate) : null}
                 </div>
 
                 <input

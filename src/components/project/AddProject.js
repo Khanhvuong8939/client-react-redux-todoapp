@@ -75,47 +75,49 @@ class AddProject extends Component {
                 <div className="form-group">
                   <input
                     type="text"
-                    className={errors.projectName ? invalidInput : validInput}
+                    className={
+                      errors.projectIdentifier ? invalidInput : validInput
+                    }
                     placeholder="Unique Project ID"
                     name="projectIdentifier"
                     value={this.state.projectIdentifier}
                     onChange={this.onChange}
                   />
-                  {errors.projectName
+                  {errors.projectIdentifier
                     ? errorText(errors.projectIdentifier)
                     : null}
                 </div>
                 <div className="form-group">
                   <textarea
-                    className={errors.projectName ? invalidInput : validInput}
+                    className={errors.description ? invalidInput : validInput}
                     placeholder="Project Description"
                     name="description"
                     value={this.state.description}
                     onChange={this.onChange}
                   ></textarea>
-                  {errors.projectName ? errorText(errors.description) : null}
+                  {errors.description ? errorText(errors.description) : null}
                 </div>
                 <h6>Start Date</h6>
                 <div className="form-group">
                   <input
                     type="date"
-                    className={errors.projectName ? invalidInput : validInput}
+                    className={errors.startDate ? invalidInput : validInput}
                     name="startDate"
                     value={this.state.startDate}
                     onChange={this.onChange}
                   />
-                  {errors.projectName ? errorText(errors.startDate) : null}
+                  {errors.startDate ? errorText(errors.startDate) : null}
                 </div>
                 <h6>Estimated End Date</h6>
                 <div className="form-group">
                   <input
                     type="date"
-                    className={errors.projectName ? invalidInput : validInput}
+                    className={errors.endDate ? invalidInput : validInput}
                     name="endDate"
                     value={this.state.endDate}
                     onChange={this.onChange}
                   />
-                  {errors.projectName ? errorText(errors.endDate) : null}
+                  {errors.endDate ? errorText(errors.endDate) : null}
                 </div>
 
                 <input
